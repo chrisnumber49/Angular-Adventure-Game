@@ -9,7 +9,7 @@ export interface QuestionState {
   currentNode: Question;
 }
 
-const initialState: QuestionState = {
+export const initialState: QuestionState = {
   questionList: questionList,
   currentNode: questionList[0]
 }

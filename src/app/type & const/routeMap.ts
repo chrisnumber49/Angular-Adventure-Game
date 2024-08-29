@@ -84,3 +84,93 @@ export const questionList: Question[] = [
   },
 ]
 
+// constant for unit test
+export const TEST_ROUTE_MAP = {
+  "data": "Do you want a doughnut?\nfalse",
+  "linkColor": "red",
+  "background": "red",
+  "color": "white",
+  "width": 250,
+  "height": 75,
+  "children": [
+      {
+          "data": "Do I deserve it?",
+          "linkColor": "silver",
+          "background": "silver",
+          "color": "white",
+          "width": 250,
+          "height": 75,
+          "children": [
+              {
+                  "data": "Are you sure?",
+                  "linkColor": "silver",
+                  "background": "silver",
+                  "color": "white",
+                  "width": 250,
+                  "height": 75,
+                  "children": [
+                      {
+                          "data": "Get it!",
+                          "linkColor": "silver",
+                          "background": "silver",
+                          "color": "white",
+                          "width": 250,
+                          "height": 75,
+                          "id": 3
+                      },
+                      {
+                          "data": "Do jumping jacks first",
+                          "linkColor": "silver",
+                          "background": "silver",
+                          "color": "white",
+                          "width": 250,
+                          "height": 75,
+                          "id": 4
+                      }
+                  ],
+                  "id": 2
+              },
+              {
+                  "data": "Is it a good doughnut?",
+                  "linkColor": "silver",
+                  "background": "silver",
+                  "color": "white",
+                  "width": 250,
+                  "height": 75,
+                  "children": [
+                      {
+                          "data": "What are you waitnig for? \n Grab it now!",
+                          "linkColor": "silver",
+                          "background": "silver",
+                          "color": "white",
+                          "width": 250,
+                          "height": 75,
+                          "id": 6
+                      },
+                      {
+                          "data": "Wait 'til you find a sinful, \n unforgettable doughnut.",
+                          "linkColor": "silver",
+                          "background": "silver",
+                          "color": "white",
+                          "width": 250,
+                          "height": 75,
+                          "id": 7
+                      }
+                  ],
+                  "id": 5
+              }
+          ],
+          "id": 1
+      },
+      {
+          "data": "Maybe you want an apple",
+          "linkColor": "red",
+          "background": "red",
+          "color": "white",
+          "width": 250,
+          "height": 75,
+          "id": 8
+      }
+  ],
+  "id": 0
+}
