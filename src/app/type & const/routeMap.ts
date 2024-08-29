@@ -72,66 +72,15 @@ export const questionList: Question[] = [
   },
   {
     id: '7',
-    data: "What are you waitnig for? Grab it now!",
+    data: "What are you waitnig for? \n Grab it now!",
     parent: '4',
     selected: false
   },
   {
     id: '8',
-    data: "Wait 'til you find a sinful, unforgettable doughnut.",
+    data: "Wait 'til you find a sinful, \n unforgettable doughnut.",
     parent: '4',
     selected: false
   },
 ]
-
-
-
-
-
-
-
-// final map format temp here
- export const routeMap = {
-  data: "Do you want a doughnut?",
-  children: [
-    {
-      selected: false,
-      data: "Do I deserve it?",
-      children: [
-        {
-          selected: false,
-          data: "Are you sure?",
-          children: [
-            {
-              selected: false,
-              data:"Get it!"
-            },
-            {
-              selected: false,
-              data:"Do jumping jacks first"
-            }
-          ]
-        },
-        {
-          selected: false,
-          data: "Is it a good doughnut?",
-          children: [
-            {
-              selected: false,
-              data:"What are you waitnig for? Grab it now!"
-            },
-            {
-              selected: false,
-              data:"Wait 'til you find a sinful, unforgettable doughnut."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      selected: false,
-      data: "Maybe you want an apple"
-    }
-  ]
-}
 

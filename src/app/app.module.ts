@@ -12,6 +12,7 @@ import { QUESTION_MAP_FEATURE_KEY, questionMapReducer } from './+state/routeSele
 import { TreeViewComponent } from './components/tree-view.component/tree-view.component';
 import { SelectionViewComponent } from './components/selection-view/selection-view.component';
 import { ResultViewComponent } from './components/result-view/result-view.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ResultViewComponent } from './components/result-view/result-view.compon
     CommonModule,
     AppRoutingModule,
     MaterialModule,
+    FormsModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
         maxAge: 25,

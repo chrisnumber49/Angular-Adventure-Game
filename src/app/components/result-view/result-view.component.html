@@ -1,1 +1,12 @@
-<p>result-view works!</p>
+<div class="page-container">
+    <tree-view #treeView [data]="data" [template]="treeTemplate"> 
+
+    </tree-view>
+    <ng-template #treeTemplate let-node>
+    {{node.data}}
+    </ng-template>
+
+    <div class="mt-5">
+        <button mat-stroked-button color="primary" (click)="onRestart()">Restart</button>
+    </div>
+</div>

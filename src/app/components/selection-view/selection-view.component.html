@@ -1,1 +1,20 @@
-<p>selection-view works!</p>
+<div class="page-container">
+    <div class="d-flex align-items-center">
+        <button mat-icon-button class="white-icon me-3" *ngIf="!isRootQuestion" (click)="onPreviousAnswer()">
+            <mat-icon>backspace</mat-icon>
+        </button>
+
+        <h1>{{questionText}}</h1> 
+    </div>
+     
+
+    <div class="mt-5 w-50 d-flex align-items-center justify-content-between" *ngIf="!questionEnd">
+        <button mat-stroked-button color="accent" (click)="onAnswer(false)">NO</button>
+        <button mat-stroked-button color="primary" (click)="onAnswer(true)">YES</button>
+    </div>
+
+    <div class="mt-5 w-50 d-flex align-items-center justify-content-center" *ngIf="questionEnd">
+        <button mat-stroked-button color="primary" (click)="onCheckResult()">Check Result</button>
+    </div>
+</div>
+

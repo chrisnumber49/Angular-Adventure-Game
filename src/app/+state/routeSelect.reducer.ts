@@ -22,7 +22,7 @@ export const questionMapReducer = createReducer(
     
     // base on user's answer get the following question
     const selectedChild = newState.questionList.find((question)=>{
-      const selectedId = question.childrenRef.find((child)=>{
+      const selectedId = newState.currentNode.childrenRef?.find((child)=>{
         return child.value === userSelection; 
       }).id;
 

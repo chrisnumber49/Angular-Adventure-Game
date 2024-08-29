@@ -18,8 +18,11 @@ export const getFullRouteMap = createSelector(
     // based on the question list, create a full route map tree to display the result
     const routeMap = stateCopy.questionList[0];
     stateCopy.questionList.forEach((question)=>{
-      question.linkColor = 'black';
+      question.linkColor = question.selected? 'red': 'silver';
       question.background = question.selected? 'red': 'silver';
+      question.color = 'white';
+      question.width = 250;
+      question.height =75;
 
       // append child nodes under current node to form a tree structure
       if(question.childrenRef){
@@ -29,8 +32,11 @@ export const getFullRouteMap = createSelector(
           const targetNode = stateCopy.questionList.find((question) => {
             return question.id === child.id;
           });
-
           question.children.push(targetNode);
+
+          if(targetNode.selected === true) {
+            question.data = question.data + "\n" + child.value
+          }
         });
       }
 
