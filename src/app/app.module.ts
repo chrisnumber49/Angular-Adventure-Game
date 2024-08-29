@@ -1,19 +1,28 @@
 import { NgModule, isDevMode  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MaterialModule} from './material/material.module';
 import { StoreModule } from '@ngrx/store';
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
-import { DISPLAY_CONFIG_FEATURE_KEY, displayConfigReducer } from './+state/displayConfig.reducer';
+import { QUESTION_MAP_FEATURE_KEY, questionMapReducer } from './+state/routeSelect.reducer';
+import { TreeViewComponent } from './components/tree-view.component/tree-view.component';
+import { SelectionViewComponent } from './components/selection-view/selection-view.component';
+import { ResultViewComponent } from './components/result-view/result-view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TreeViewComponent,
+    SelectionViewComponent,
+    ResultViewComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     MaterialModule,
     StoreModule.forRoot({}, {}),
@@ -21,7 +30,7 @@ import { DISPLAY_CONFIG_FEATURE_KEY, displayConfigReducer } from './+state/displ
         maxAge: 25,
         logOnly: !isDevMode()
     }),
-    StoreModule.forFeature(DISPLAY_CONFIG_FEATURE_KEY, displayConfigReducer),
+    StoreModule.forFeature(QUESTION_MAP_FEATURE_KEY, questionMapReducer),
   ],
   providers: [],
   bootstrap: [AppComponent]

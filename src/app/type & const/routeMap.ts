@@ -1,75 +1,136 @@
-export interface RouteMap {
-    text: string,
-    options: Option[]
+export interface Question {
+  id: string;
+  data: string,
+  selected: boolean;
+  parent: string;
+  childrenRef?: {
+    id: string, 
+    value: boolean
+  }[],
+  background?: 'red' | 'silver';
+  linkColor?: 'black';
 }
 
-interface Option {
-    value: boolean,
-    selected: boolean,
-    nextStep: NextStep
-}
+export const questionList: Question[] = [
+  {
+    id: '0',
+    data: "Do you want a doughnut?",
+    parent: null,
+    childrenRef: [
+      {id:'1', value: true},
+      {id:'2', value: false},
+    ],
+    selected: true,
+  },
+  {
+    id: '1',
+    data: "Do I deserve it?",
+    parent: '0',
+    childrenRef: [
+      {id:'3', value: true},
+      {id:'4', value: false},
+    ],
+    selected: false
+  },
+  {
+    id: '2',
+    data: "Maybe you want an apple",
+    parent: '0',
+    selected: false
+  },
+  {
+    id: '3',
+    data: "Are you sure?",
+    parent: '1',
+    childrenRef: [
+      {id:'5', value: true},
+      {id:'6', value: false},
+    ],
+    selected: false,
+  },
+  {
+    id: '4',
+    data: "Is it a good doughnut?",
+    parent: '1',
+    childrenRef: [
+      {id:'7', value: true},
+      {id:'8', value: false},
+    ],
+    selected: false
+  },
+  {
+    id: '5',
+    data: "Get it!",
+    parent: '3',
+    selected: false
+  },
+  {
+    id: '6',
+    data: "Do jumping jacks first",
+    parent: '3',
+    selected: false
+  },
+  {
+    id: '7',
+    data: "What are you waitnig for? Grab it now!",
+    parent: '4',
+    selected: false
+  },
+  {
+    id: '8',
+    data: "Wait 'til you find a sinful, unforgettable doughnut.",
+    parent: '4',
+    selected: false
+  },
+]
 
-interface NextStep {
-    text: string,
-    options?: Option[]
-}
 
-export const routeMap: RouteMap = {
-  text: "Do you want a doughnut?",
-  options: [
+
+
+
+
+
+// final map format temp here
+ export const routeMap = {
+  data: "Do you want a doughnut?",
+  children: [
     {
-      value: true,
       selected: false,
-      nextStep: {
-        text: "Do I deserve it?",
-        options: [
-          {
-            value: true,
-            selected: false,
-            nextStep: {
-              text: "Are you sure?",
-              options: [
-                {
-                  value: true,
-                  selected: false,
-                  nextStep: {text:"Get it!"}
-                },
-                {
-                  value: false,
-                  selected: false,
-                  nextStep: {text:"Do jumping jacks first"}
-                }
-              ]
+      data: "Do I deserve it?",
+      children: [
+        {
+          selected: false,
+          data: "Are you sure?",
+          children: [
+            {
+              selected: false,
+              data:"Get it!"
+            },
+            {
+              selected: false,
+              data:"Do jumping jacks first"
             }
-          },
-          {
-            value: false,
-            selected: false,
-            nextStep: {
-              text: "Is it a good doughnut?",
-              options: [
-                {
-                  value: true,
-                  selected: false,
-                  nextStep: {text:"What are you waitnig for? Grab it now!"}
-                },
-                {
-                  value: false,
-                  selected: false,
-                  nextStep: {text:"Wait 'til you find a sinful, unforgettable doughnut."}
-                }
-              ]
+          ]
+        },
+        {
+          selected: false,
+          data: "Is it a good doughnut?",
+          children: [
+            {
+              selected: false,
+              data:"What are you waitnig for? Grab it now!"
+            },
+            {
+              selected: false,
+              data:"Wait 'til you find a sinful, unforgettable doughnut."
             }
-          }
-        ]
-      }
+          ]
+        }
+      ]
     },
     {
-      value: false,
       selected: false,
-      nextStep: {
-        text: "Maybe you want an apple"
-      }
+      data: "Maybe you want an apple"
     }
   ]
 }
