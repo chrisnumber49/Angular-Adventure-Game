@@ -24,9 +24,9 @@ export const questionMapReducer = createReducer(
     const selectedChild = newState.questionList.find((question)=>{
       const selectedId = newState.currentNode.childrenRef?.find((child)=>{
         return child.value === userSelection; 
-      }).id;
+      }).questionId;
 
-      return question.id === selectedId;
+      return question.questionId === selectedId;
     })
 
     // set the selected to true for the result display color
@@ -42,12 +42,12 @@ export const questionMapReducer = createReducer(
 
     // set the selected of current node to false
     newState.questionList.find((question)=>{
-     return question.id === newState.currentNode.id;
+     return question.questionId === newState.currentNode.questionId;
     }).selected = false;
 
     // then set the current node back to the parent node (previous step)
     newState.currentNode = newState.questionList.find((question)=>{
-      return question.id === newState.currentNode.parent;
+      return question.questionId === newState.currentNode.parent;
      });
 
     return newState;

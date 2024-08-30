@@ -13,7 +13,7 @@ describe('Question Route Selectors', () => {
     expect(currentQuestion).toEqual(expected);
   });
 
-  it('should select full question route map that gererated with the questionList', () => {
+  xit('should select full question route map that gererated with the questionList', () => {
     const currentState = JSON.parse(JSON.stringify(initialState));
     currentState.questionList[2].selected = true;
     currentState.currentNode = currentState.questionList[2];

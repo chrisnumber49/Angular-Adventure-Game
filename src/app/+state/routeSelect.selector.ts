@@ -30,7 +30,7 @@ export const getFullRouteMap = createSelector(
 
         question.childrenRef.forEach((child) => {
           const targetNode = stateCopy.questionList.find((question) => {
-            return question.id === child.id;
+            return question.questionId === child.questionId;
           });
           question.children.push(targetNode);
 
@@ -40,7 +40,7 @@ export const getFullRouteMap = createSelector(
         });
       }
 
-      delete question.id;
+      delete question.questionId;
       delete question.parent;
       delete question.selected;
       delete question.childrenRef;

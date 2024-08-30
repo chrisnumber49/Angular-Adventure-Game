@@ -1,10 +1,10 @@
 export interface Question {
-  id: string;
+  questionId: string;
   data: string,
   selected: boolean;
   parent: string;
   childrenRef?: {
-    id: string, 
+    questionId: string, 
     value: boolean
   }[],
   background?: 'red' | 'silver';
@@ -13,71 +13,71 @@ export interface Question {
 
 export const questionList: Question[] = [
   {
-    id: '0',
+    questionId: '0',
     data: "Do you want a doughnut?",
     parent: null,
     childrenRef: [
-      {id:'1', value: true},
-      {id:'2', value: false},
+      {questionId:'1', value: true},
+      {questionId:'2', value: false},
     ],
     selected: true,
   },
   {
-    id: '1',
+    questionId: '1',
     data: "Do I deserve it?",
     parent: '0',
     childrenRef: [
-      {id:'3', value: true},
-      {id:'4', value: false},
+      {questionId:'3', value: true},
+      {questionId:'4', value: false},
     ],
     selected: false
   },
   {
-    id: '2',
+    questionId: '2',
     data: "Maybe you want an apple",
     parent: '0',
     selected: false
   },
   {
-    id: '3',
+    questionId: '3',
     data: "Are you sure?",
     parent: '1',
     childrenRef: [
-      {id:'5', value: true},
-      {id:'6', value: false},
+      {questionId:'5', value: true},
+      {questionId:'6', value: false},
     ],
     selected: false,
   },
   {
-    id: '4',
+    questionId: '4',
     data: "Is it a good doughnut?",
     parent: '1',
     childrenRef: [
-      {id:'7', value: true},
-      {id:'8', value: false},
+      {questionId:'7', value: true},
+      {questionId:'8', value: false},
     ],
     selected: false
   },
   {
-    id: '5',
+    questionId: '5',
     data: "Get it!",
     parent: '3',
     selected: false
   },
   {
-    id: '6',
+    questionId: '6',
     data: "Do jumping jacks first",
     parent: '3',
     selected: false
   },
   {
-    id: '7',
+    questionId: '7',
     data: "What are you waitnig for? \n Grab it now!",
     parent: '4',
     selected: false
   },
   {
-    id: '8',
+    questionId: '8',
     data: "Wait 'til you find a sinful, \n unforgettable doughnut.",
     parent: '4',
     selected: false
