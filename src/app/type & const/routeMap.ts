@@ -116,7 +116,6 @@ export const TEST_ROUTE_MAP = {
                           "color": "white",
                           "width": 250,
                           "height": 75,
-                          "id": 3
                       },
                       {
                           "data": "Do jumping jacks first",
@@ -125,10 +124,8 @@ export const TEST_ROUTE_MAP = {
                           "color": "white",
                           "width": 250,
                           "height": 75,
-                          "id": 4
                       }
                   ],
-                  "id": 2
               },
               {
                   "data": "Is it a good doughnut?",
@@ -145,7 +142,6 @@ export const TEST_ROUTE_MAP = {
                           "color": "white",
                           "width": 250,
                           "height": 75,
-                          "id": 6
                       },
                       {
                           "data": "Wait 'til you find a sinful, \n unforgettable doughnut.",
@@ -154,13 +150,10 @@ export const TEST_ROUTE_MAP = {
                           "color": "white",
                           "width": 250,
                           "height": 75,
-                          "id": 7
                       }
                   ],
-                  "id": 5
               }
           ],
-          "id": 1
       },
       {
           "data": "Maybe you want an apple",
@@ -169,8 +162,6 @@ export const TEST_ROUTE_MAP = {
           "color": "white",
           "width": 250,
           "height": 75,
-          "id": 8
       }
   ],
-  "id": 0
 }
