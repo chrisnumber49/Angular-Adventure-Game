@@ -35,7 +35,7 @@ export const getFullRouteMap = createSelector(
           question.children.push(targetNode);
 
           if(targetNode.selected === true) {
-            question.data = question.data + "\n" + child.value
+            question.data = question.data + "\n" + (child.value? 'Yes!': 'No!');
           }
         });
       }
