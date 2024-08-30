@@ -10,12 +10,11 @@ import { By } from '@angular/platform-browser';
 import { QuestionMapActions } from '../../+state/routeSelect.actions';
 import { Router } from '@angular/router';
 
-let store: MockStore;
-let router:Router;
-
 describe('ResultViewComponent', () => {
   let component: ResultViewComponent;
   let fixture: ComponentFixture<ResultViewComponent>;
+  let store: MockStore;
+  let router:Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

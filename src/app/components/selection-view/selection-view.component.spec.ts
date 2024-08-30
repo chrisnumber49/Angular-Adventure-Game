@@ -2,22 +2,37 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SelectionViewComponent } from './selection-view.component';
 import { StoreModule } from '@ngrx/store';
+import { By } from '@angular/platform-browser';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { initialState } from '../../+state/routeSelect.reducer';
+import { Router } from '@angular/router';
+import { QuestionMapActions } from '../../+state/routeSelect.actions';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('SelectionViewComponent', () => {
   let component: SelectionViewComponent;
   let fixture: ComponentFixture<SelectionViewComponent>;
+  let store: MockStore;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SelectionViewComponent],
       imports: [
+        MatIconModule,
         StoreModule.forRoot({})
+      ],
+      providers: [
+        provideMockStore({ initialState }),
       ],
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(SelectionViewComponent);
     component = fixture.componentInstance;
+    component.questionText = 'test';
+    store = TestBed.inject(MockStore);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -26,23 +41,52 @@ describe('SelectionViewComponent', () => {
   });
 
   it('should display answer button when the questions is still remain', () => {
-    expect(component).toBeTruthy();
+    component.questionEnd = false;
+    fixture.detectChanges();
+    const yesBtn = fixture.debugElement.query(By.css('#yes-btn')).nativeElement;
+    const noBtn = fixture.debugElement.query(By.css('#yes-btn')).nativeElement;
+    expect(yesBtn).toBeTruthy();
+    expect(noBtn).toBeTruthy();
   });
   it('should dispatch selectAnswer when clicking answer button', () => {
-    expect(component).toBeTruthy();
+    const dispatchSpy = spyOn(store, 'dispatch').and.callThrough();
+    component.questionEnd = false;
+    const yesBtn = fixture.debugElement.query(By.css('#yes-btn')).nativeElement;
+    
+    yesBtn.click();
+    
+    expect(dispatchSpy).toHaveBeenCalledWith(QuestionMapActions.selectAnswer({userSelection: true}));
   });
 
   it('should display back button if not the first question', () => {
-    expect(component).toBeTruthy();
+    component.isRootQuestion = false;
+    fixture.detectChanges();
+    const backBtn = fixture.debugElement.query(By.css('#back-btn')).nativeElement;
+    expect(backBtn).toBeTruthy();
   });
   it('should dispatch previousStep when clicking back button', () => {
-    expect(component).toBeTruthy();
+    const dispatchSpy = spyOn(store, 'dispatch').and.callThrough();
+    component.isRootQuestion = false;
+    fixture.detectChanges();
+    const backBtn = fixture.debugElement.query(By.css('#back-btn')).nativeElement;
+    backBtn.click();
+
+    expect(dispatchSpy).toHaveBeenCalledWith(QuestionMapActions.previousStep());
   });
 
   it('should display show result button when no questions remain', () => {
-    expect(component).toBeTruthy();
+    component.questionEnd = true;
+    fixture.detectChanges();
+    const resultBtn = fixture.debugElement.query(By.css('#result-btn')).nativeElement;
+    expect(resultBtn).toBeTruthy();
   });
   it('should navigate result screen when clicking show result button', () => {
-    expect(component).toBeTruthy();
+    const navigateSpy = spyOn(router, 'navigate');
+    component.questionEnd = true;
+    fixture.detectChanges();
+    const resultBtn = fixture.debugElement.query(By.css('#result-btn')).nativeElement;
+    resultBtn.click();
+
+    expect(navigateSpy).toHaveBeenCalledWith(['result']);
   });
 });
