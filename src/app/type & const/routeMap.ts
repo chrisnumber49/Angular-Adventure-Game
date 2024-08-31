@@ -86,7 +86,7 @@ export const questionList: Question[] = [
 
 // constant for unit test
 export const TEST_ROUTE_MAP = {
-  "data": "Do you want a doughnut?\nfalse",
+  "data": "Do you want a doughnut?\nNo!",
   "linkColor": "red",
   "background": "red",
   "color": "white",

@@ -9,6 +9,7 @@ import { initialState } from '../../+state/routeSelect.reducer';
 import { By } from '@angular/platform-browser';
 import { QuestionMapActions } from '../../+state/routeSelect.actions';
 import { Router } from '@angular/router';
+import { getFullRouteMap } from '../../+state/routeSelect.selector';
 
 describe('ResultViewComponent', () => {
   let component: ResultViewComponent;
@@ -38,6 +39,14 @@ describe('ResultViewComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should select the getFullRouteMap and set the data of question route map for tree display when component set up', () => {
+    store.overrideSelector(getFullRouteMap, TEST_ROUTE_MAP);
+    fixture = TestBed.createComponent(ResultViewComponent);
+    component = fixture.componentInstance;
+
+    expect(component.data).toEqual(TEST_ROUTE_MAP);
   });
 
   it('should reset question map and navigate back to selection screen when clicking restart button', () => {

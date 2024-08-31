@@ -8,6 +8,8 @@ import { initialState } from '../../+state/routeSelect.reducer';
 import { Router } from '@angular/router';
 import { QuestionMapActions } from '../../+state/routeSelect.actions';
 import { MatIconModule } from '@angular/material/icon';
+import { getCurrentQuestion } from '../../+state/routeSelect.selector';
+
 
 describe('SelectionViewComponent', () => {
   let component: SelectionViewComponent;
@@ -38,6 +40,16 @@ describe('SelectionViewComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should select the currentQuestion state and set the questionText, questionEnd and isRootQuestion when component set up', () => {
+    store.overrideSelector(getCurrentQuestion, initialState.currentNode);
+    fixture = TestBed.createComponent(SelectionViewComponent);
+    component = fixture.componentInstance;
+
+    expect(component.questionText).toEqual('Do you want a doughnut?');
+    expect(component.questionEnd).toEqual(false);
+    expect(component.isRootQuestion).toEqual(true);
   });
 
   it('should display answer button when the questions is still remain', () => {
