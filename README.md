@@ -8,4 +8,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit test specs in **selection-view.component.spec.ts**, **result-view.component.spec.ts**, **routeSelect.reducer.spec.ts**, and **routeSelect.selector.spec.ts** via [Karma](https://karma-runner.github.io), to validate the functionalities in components and state management.
