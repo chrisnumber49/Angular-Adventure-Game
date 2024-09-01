@@ -1,8 +1,14 @@
 # AngularAdventureGame
 
-This simple web application allows users to choose their question path by choosing between two choices displayed on the screen to progress to the next set of choices until they get to one of the endings.
+This simple web application allows users to choose their question path between two choices displayed on the screen to progress to the next set of choices until they get to one of the endings.
 
-At the end of the question path, the user can see the full route map with a tree diagram that shows which decision the user has made for each question and highlights the path that the user chose.
+<img src="https://github.com/chrisnumber49/angular-adventure-game/blob/main/screen%20shot/Screenshot%202024-09-01%20125407.png" width="700" >
+<img src="https://github.com/chrisnumber49/angular-adventure-game/blob/main/screen%20shot/Screenshot%202024-09-01%20125422.png" width="700" >
+<img src="https://github.com/chrisnumber49/angular-adventure-game/blob/main/screen%20shot/Screenshot%202024-09-01%20125436.png" width="700" >
+
+At the end of the question path, the user can see the full route map with a tree diagram showing which decision the user has made for each question and highlighting the path the user chose.
+
+<img src="https://github.com/chrisnumber49/angular-adventure-game/blob/main/screen%20shot/Screenshot%202024-09-01%20125446.png" width="700" >
 
 The core technology of this project revolves around using **ngRx**, the Redux state management library to keep tracking the user decision route in the store, then in the result view screen the decision route map is displayed by using the external library component **tree-view**.
 
