@@ -1,27 +1,21 @@
 # AngularAdventureGame
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+This simple web application allows users to choose their path based on the choices on the question displayed on the screen to progress to the next set of choices until they get to one of the endings.
+
+<img src="https://github.com/chrisnumber49/angular-adventure-game/blob/main/screen%20shot/Screenshot%202024-09-01%20125407.png" width="700" >
+<img src="https://github.com/chrisnumber49/angular-adventure-game/blob/main/screen%20shot/Screenshot%202024-09-01%20125422.png" width="700" >
+<img src="https://github.com/chrisnumber49/angular-adventure-game/blob/main/screen%20shot/Screenshot%202024-09-01%20125436.png" width="700" >
+
+At the end of the question path, the user can see the full route map with a tree diagram showing which decision the user has made for each question and highlighting the path the user chose.
+
+<img src="https://github.com/chrisnumber49/angular-adventure-game/blob/main/screen%20shot/Screenshot%202024-09-01%20125446.png" width="700" >
+
+The core technology of this project revolves around using **ngRx**, a Redux state management library to keep tracking the user decision route in the store, then in the result view screen the decision route map is generated and displayed by using the external library component **tree-view**.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Run `ng test` to execute the unit test specs in **selection-view.component.spec.ts**, **result-view.component.spec.ts**, **routeSelect.reducer.spec.ts**, and **routeSelect.selector.spec.ts** via [Karma](https://karma-runner.github.io), to validate the functionalities in components and state management.
