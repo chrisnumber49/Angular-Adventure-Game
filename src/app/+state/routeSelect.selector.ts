@@ -5,14 +5,14 @@ export const getQuestionMapState = createFeatureSelector<any>(QUESTION_MAP_FEATU
 
 export const getCurrentQuestion = createSelector(
   getQuestionMapState,
-  (state) => {
+  (state: QuestionState) => {
       return state.currentNode;
   }
 );
 
 export const getFullRouteMap = createSelector(
   getQuestionMapState,
-  (state) => {
+  (state: QuestionState) => {
     const stateCopy = JSON.parse(JSON.stringify(state));
 
     // based on the question list, create a full route map tree to display the result

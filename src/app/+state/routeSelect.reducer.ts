@@ -21,7 +21,7 @@ export const questionMapReducer = createReducer(
     const newState = JSON.parse(JSON.stringify(state));
     
     // base on user's answer get the following question
-    const selectedChild = newState.questionList.find((question)=>{
+    const selectedChild = newState.questionList.find((question:Question)=>{
       const selectedId = newState.currentNode.childrenRef?.find((child)=>{
         return child.value === userSelection; 
       }).questionId;
@@ -41,12 +41,12 @@ export const questionMapReducer = createReducer(
     const newState = JSON.parse(JSON.stringify(state));
 
     // set the selected of current node to false
-    newState.questionList.find((question)=>{
+    newState.questionList.find((question: Question)=>{
      return question.questionId === newState.currentNode.questionId;
     }).selected = false;
 
     // then set the current node back to the parent node (previous step)
-    newState.currentNode = newState.questionList.find((question)=>{
+    newState.currentNode = newState.questionList.find((question: Question)=>{
       return question.questionId === newState.currentNode.parent;
      });
 

@@ -5,7 +5,9 @@ import { getCurrentQuestion } from '../../+state/routeSelect.selector';
 import { QuestionState } from '../../+state/routeSelect.reducer';
 import { QuestionMapActions } from '../../+state/routeSelect.actions';
 import { Router } from '@angular/router';
+import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 
+@UntilDestroy()
 @Component({
   selector: 'app-selection-view',
   templateUrl: './selection-view.component.html',
@@ -17,7 +19,7 @@ export class SelectionViewComponent {
   isRootQuestion: boolean = true;
 
   constructor(private store: Store<QuestionState>, public router: Router,){
-    this.store.select(getCurrentQuestion).subscribe((currentNode:Question) => {
+    this.store.select(getCurrentQuestion).pipe(untilDestroyed(this)).subscribe((currentNode:Question) => {
       console.log('current node', currentNode);
       this.questionText = currentNode.data;
       this.questionEnd = currentNode.childrenRef? false: true;

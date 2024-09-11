@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 import { getFullRouteMap } from '../../+state/routeSelect.selector';
 import { IECONode } from '../../type & const/econode';
 import { QuestionMapActions } from '../../+state/routeSelect.actions';
+import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 
+@UntilDestroy()
 @Component({
   selector: 'app-result-view',
   templateUrl: './result-view.component.html',
@@ -15,7 +17,7 @@ export class ResultViewComponent {
   data: IECONode;
 
   constructor(private store: Store<QuestionState>, public router: Router,){
-    this.store.select(getFullRouteMap).subscribe((routeMap) => {
+    this.store.select(getFullRouteMap).pipe(untilDestroyed(this)).subscribe((routeMap) => {
       this.data = routeMap;
 
       console.log('Full Route Map', this.data);
